@@ -14,8 +14,7 @@ class Books(models.Model):
     editorial = models.CharField(max_length=40)
     edition = models.CharField(max_length=40)
     available = models.BooleanField()
-    
-class users_libraries(models.Model):
+class Users_libraries(models.Model):
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
     books = models.ManyToManyField(Books)
     available = models.BooleanField()
