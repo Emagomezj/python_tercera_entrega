@@ -18,3 +18,6 @@ class LibrariesFormulario(forms.Form):
     user = forms.ModelChoiceField(queryset=Users.objects.all())
     books = forms.ModelMultipleChoiceField(queryset=Books.objects.all(), widget=forms.CheckboxSelectMultiple)
     available = forms.BooleanField()
+    
+class SearchBooks(forms.Form):
+    book = forms.CharField()

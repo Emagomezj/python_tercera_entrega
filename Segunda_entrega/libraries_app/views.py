@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Users,Books,Users_libraries
-from libraries_app.forms import UsersFormulario,BooksFormulario,LibrariesFormulario
+from libraries_app.forms import UsersFormulario,BooksFormulario,LibrariesFormulario,SearchBooks
 
 # Create your views here.
 def home(request):
@@ -66,3 +66,18 @@ def LibrariesFormularios(request):
         mi_formulario = LibrariesFormulario()
 
     return render(request, "libraries_app/forms_page.html", {"mi_formulario": mi_formulario})
+
+def Search(request):
+    if request.method == "POST":
+        miFormulario = SearchBooks(request.POST) # Aqui me llega la informacion del html
+
+        if miFormulario.is_valid():
+            informacion = miFormulario.cleaned_data
+            
+            books = Books.objects.filter(name__icontains=informacion["book"])
+
+            return render(request, "libraries_app/results.html", {"books": books})
+    else:
+        miFormulario = SearchBooks()
+
+    return render(request, "libraries_app/search.html", {"miFormulario": miFormulario})

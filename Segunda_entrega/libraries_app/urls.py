@@ -24,5 +24,6 @@ urlpatterns += [
 urlpatterns += [
     path('loadUser/', views.UsersFormularios, name="UsersFormularios"),
     path('loadBook/',views.BooksFormularios,name='BooksFormularios'),
-    path('loadLibrary', views.LibrariesFormularios,name='LibrariesFormularios')
+    path('loadLibrary/', views.LibrariesFormularios,name='LibrariesFormularios'),
+    path('buscar/', views.Search, name='buscar')
 ]
