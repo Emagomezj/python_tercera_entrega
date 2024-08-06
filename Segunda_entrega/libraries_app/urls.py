@@ -20,3 +20,9 @@ urlpatterns += [
 urlpatterns += [
     path('login/', views.login, name='Log In')
 ]
+
+urlpatterns += [
+    path('loadUser/', views.UsersFormularios, name="UsersFormularios"),
+    path('loadBook/',views.BooksFormularios,name='BooksFormularios'),
+    path('loadLibrary', views.LibrariesFormularios,name='LibrariesFormularios')
+]
