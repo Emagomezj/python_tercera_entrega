@@ -30,7 +30,7 @@ def UsersFormularios(request):
     else:
         mi_formulario = UsersFormulario()
 
-    return render(request, "libraries_app/forms_page.html.html", {"mi_formulario": mi_formulario})
+    return render(request, "libraries_app/forms_page.html", {"mi_formulario": mi_formulario})
 
 def BooksFormularios(request):
     if request.method == "POST":
